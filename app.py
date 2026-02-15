@@ -1,7 +1,8 @@
 from transformers import pipeline
 import gradio as gr
 
-model = pipeline("summarization")
+# Specifically naming a popular summarization model
+model = pipeline("text2text-generation", model="facebook/bart-large-cnn")
 
 def predict(prompt):
     summary = model(prompt)[0]["summary_text"]
